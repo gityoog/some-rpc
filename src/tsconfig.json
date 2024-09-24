@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "../dist",
+    "checkJs": true,
+    "declaration": true
+  },
+  "include": [
+    "./**/*"
+  ]
+}
