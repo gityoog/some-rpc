@@ -1,5 +1,5 @@
 {
-  "name": "anyrpc",
+  "name": "some-rpc",
   "version": "1.0.0",
   "description": "electron worker fork rpc",
   "main": "./index.js",
