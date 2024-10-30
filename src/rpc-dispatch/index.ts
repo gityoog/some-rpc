@@ -154,6 +154,12 @@ class RpcDispatch<T extends {
     this.handler[channel] = async function () {
       return callback(...arguments)
     }
+    return () => this.unhandle(channel)
+  }
+  unhandle<K extends keyof T['handle']>(channel: K) {
+    if (channel in this.handler) {
+      delete this.handler[channel]
+    }
   }
   invoke<K extends keyof T['invoke']>(channel: K, ...data: Parameters<T['invoke'][K]>) {
     return new Promise<any>((resolve, reject) => {
