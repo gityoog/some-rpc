@@ -48,7 +48,8 @@ declare class RpcDispatch<T extends {
     send<K extends keyof T['send']>(channel: K, ...data: T['send'][K]): void;
     on<K extends keyof T['on']>(channel: K, listener: (...data: T['on'][K]) => void): () => void;
     off<K extends keyof T['on']>(channel: K, listener: (...data: T['on'][K]) => void): void;
-    handle<K extends keyof T['handle']>(channel: K, callback: T['handle'][K]): void;
+    handle<K extends keyof T['handle']>(channel: K, callback: T['handle'][K]): () => void;
+    unhandle<K extends keyof T['handle']>(channel: K): void;
     invoke<K extends keyof T['invoke']>(channel: K, ...data: Parameters<T['invoke'][K]>): IPromise<ReturnType<T["invoke"][K]>>;
     private _beforeDestroy;
     beforeDestroy(callback: () => void): void;

@@ -119,6 +119,12 @@ class RpcDispatch {
                 return callback(...arguments_1);
             });
         };
+        return () => this.unhandle(channel);
+    }
+    unhandle(channel) {
+        if (channel in this.handler) {
+            delete this.handler[channel];
+        }
     }
     invoke(channel, ...data) {
         return new Promise((resolve, reject) => {
